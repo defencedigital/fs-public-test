@@ -1,19 +1,17 @@
 name: Security scan
-on:
-  push:
-    paths:
-      - '**'
-      - '!.github/workflows/**'
+run-name: ${{ github.actor }} is testing out GitHub Actions 🚀
+on: [push]
 jobs:
   security-scan:
-    name: Security scan
     runs-on: ubuntu-latest
     container: python:3.8-slim
     env:
       DEBUG: 'True'
     steps:
-      - uses: actions/checkout@v2
-      - name: Scan current project
-        uses: anchore/scan-action@v3
-        with:
-          path: "."
+      - run: echo "🎉 The job was automatically triggered by a ${{ github.event_name }} event."
+#      - name: Check out repository code
+#        uses: actions/checkout@v2
+#      - name: Scan current project
+#        uses: anchore/scan-action@v3
+#        with:
+#          path: "."
