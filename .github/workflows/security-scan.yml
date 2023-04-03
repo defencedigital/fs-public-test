@@ -11,7 +11,7 @@ jobs:
       - run: echo "🎉 The job was automatically triggered by a ${{ github.event_name }} event."
       - name: Check out repository code
         uses: actions/checkout@v2
-#      - name: Scan current project
-#        uses: anchore/scan-action@v3
-#        with:
-#          path: "."
+      - name: Scan current project
+        uses: anchore/scan-action@v3
+        with:
+          path: "."
