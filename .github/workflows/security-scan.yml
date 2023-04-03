@@ -1,0 +1,19 @@
+name: Security scan
+on:
+  push:
+    paths:
+      - '**'
+      - '!.github/workflows/**'
+jobs:
+  security-scan:
+    name: Security scan
+    runs-on: ubuntu-latest
+    container: python:3.8-slim
+    env:
+      DEBUG: 'True'
+    steps:
+      - uses: actions/checkout@v2
+      - name: Scan current project
+        uses: anchore/scan-action@v3
+        with:
+          path: "."
