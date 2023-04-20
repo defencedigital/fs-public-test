@@ -17,7 +17,7 @@ jobs:
           apt-get install -y wget
           python -m pip install --upgrade pip
           python -m pip install -r requirements.txt
-      - name: scan current project
+      - name: Anchore scan project
         uses: anchore/scan-action@v3
         id: scan
         with:
